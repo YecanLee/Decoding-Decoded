@@ -1,6 +1,13 @@
 # Decoding-Decoded
 Official PyTorch Implementation of "ecoding Decoded: Understanding Hyperparameter Effects in Open-Ended Text Generation"
 
+
+<p align="center">
+  <img src="assets/cs_trend.jpeg" alt="Contrastive Search Trend">
+</p>
+
+
+
 ## Table of Contents 📖  <a href="#top">[Back to Top]</a>
 
 - [Dependency Installation](#Dependency-installation-)
