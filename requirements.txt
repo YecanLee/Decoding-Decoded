@@ -1,0 +1,7 @@
+numpy
+torch
+transformers
+tokenizers
+optimum
+accelerate
+mauve-text
