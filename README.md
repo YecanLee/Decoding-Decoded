@@ -1,5 +1,5 @@
 # Decoding-Decoded
-Official PyTorch Implementation of "ecoding Decoded: Understanding Hyperparameter Effects in Open-Ended Text Generation"
+Official PyTorch Implementation of "Decoding Decoded: Understanding Hyperparameter Effects in Open-Ended Text Generation"
 
 ## Table of Contents 📖  <a href="#top">[Back to Top]</a>
 
