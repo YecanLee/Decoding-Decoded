@@ -10,19 +10,19 @@ if __name__ == '__main__':
     print ('evaluation save name is {}'.format(evaluation_save_path))
     
     print ('Measuring diversity...')
-    from utlis.compute_diversity import measure_diversity
+    from utils.compute_diversity import measure_diversity
     diversity_dict = measure_diversity(args.test_path)
     print (diversity_dict)
     print ('Diversity measurement completed!')
 
     print ('Measuring generation length...')
-    from utlis.compute_gen_length import measure_gen_length
+    from utils.compute_gen_length import measure_gen_length
     gen_length_dict = measure_gen_length(args.test_path)
     print (gen_length_dict)
     print ('Generation length measurement completed!')
 
     print ('Measuring MAUVE...')
-    from utlis.compute_mauve import measure_mauve
+    from utils.compute_mauve import measure_mauve
     mauve_dict = measure_mauve(args.test_path)
     print (mauve_dict)
     print ('MAUVE measurement completed!')

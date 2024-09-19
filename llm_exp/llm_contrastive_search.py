@@ -51,7 +51,10 @@ if __name__ == '__main__':
 
     print('Loading model 🔧🔧🔧...')
     tokenizer = AutoTokenizer.from_pretrained(args.model_name, fast=True)
-    model = AutoModelForCausalLM.from_pretrained(args.model_name, torch_dtype=torch.float16, device_map="cpu")
+    model = AutoModelForCausalLM.from_pretrained(args.model_name, 
+                                                 torch_dtype=torch.bfloat16, 
+                                                 device_map="auto", 
+                                                 trust_remote_code=True)
     model = torch.compile(model, mode="max-autotune")
     model.to(device)
 
@@ -82,33 +85,3 @@ if __name__ == '__main__':
 
         with open(save_path, 'w') as outfile:
             json.dump(result_list, outfile, indent=4)
-
-
-"""
-python llm_exp/llama_contrastive.py \
---k 20 \
---alpha 0.8 \
---save_file misrtalv03 \
---save_path_prefix Mistralv03-alpha08-test \
---dataset wikitext \
---model_name mistralai/Mistral-7B-v0.3 \
---cuda 0 \
-&&
-python llm_exp/llama_contrastive.py \
---k 20 \
---alpha 0.8 \
---save_file misrtalv03 \
---save_path_prefix Mistralv03-alpha08-test \
---dataset wikinews \
---model_name mistralai/Mistral-7B-v0.3 \
---cuda 0 \
-&&
-python llm_exp/llama_contrastive.py \
---k 50 \
---alpha 1.0 \
---save_file misrtalv03 \
---save_path_prefix Mistralv03-alpha10-test \
---dataset wikinews \
---model_name mistralai/Mistral-7B-v0.3 \
---cuda 0 \
-"""
