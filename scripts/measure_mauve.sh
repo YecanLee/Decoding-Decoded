@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASE_DIR="../coling_data/Mistralv03_CS_alpha08/Mistralv03-alpha08/"
+BASE_DIR="../data/Mistralv03_CS_alpha08/Mistralv03-alpha08/"
 SUBFOLDERS=("wikitext" "wikinews" "book")
 
 for subfolder in "${SUBFOLDERS[@]}"; do
