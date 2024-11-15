@@ -1,12 +1,12 @@
 #!/bin/bash
 
-COLING_DATA_DIR="."
+DATA_DIR="."
 
 # Specify the subfolders you want to process
 subfolders=("book" "wikinews" "wikitext")
 
-# Find all immediate subdirectories of COLING_DATA_DIR that start with Deepseek, Falcon, or gpt2xl
-for BASE_DIR in "$COLING_DATA_DIR"/{Deepseek,Falcon}*/ ; do
+# Find all immediate subdirectories of DATA_DIR that start with Deepseek, Falcon, or gpt2xl
+for BASE_DIR in "$DATA_DIR"/{Deepseek,Falcon}*/ ; do
     if [ ! -d "$BASE_DIR" ]; then
         continue  # Skip if not a directory (in case no matches were found)
     fi
