@@ -1,7 +1,7 @@
 ## Decoding Decoded: Understanding Hyperparameter Effects in Open-Ended Text Generation <br><sub>Official PyTorch Implementation</sub>
-## [Paper](https://arxiv.org/abs/2410.06097) | [Project Page](https://yecanlee.github.io/2beoetgwebsite.github.io/) | Run Analysis Baseline [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1C6u0i0fHpk80uPhDWNylIlq64F_HSl-1?usp=sharing)
+## [Paper](https://arxiv.org/abs/2410.06097) | [Project Page](https://yecanlee.github.io/DecodedDecodedwebsite.io/) | Run Analysis Baseline [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1C6u0i0fHpk80uPhDWNylIlq64F_HSl-1?usp=sharing)
 
-This repo contains the official implementation of our paper __"Decoding Decoded: Understanding Hyperparameter Effects in Open-Ended Text Generation"__. You can find more details in our [project page](https://yecanlee.github.io/2beoetgwebsite.github.io/) and our [paper](https://arxiv.org/abs/2410.06097).
+This repo contains the official implementation of our paper __"Decoding Decoded: Understanding Hyperparameter Effects in Open-Ended Text Generation"__. You can find more details in our [project page](https://yecanlee.github.io/DecodedDecodedwebsite.io/) and our [paper](https://arxiv.org/abs/2410.06097).
 
 > [**Decoding Decoded: Understanding Hyperparameter Effects in Open-Ended Text Generation**](https://arxiv.org/abs/2410.06097)<br>
 > [Esteban Garces Arias](https://scholar.google.com/citations?user=FK1UX0gAAAAJ&hl=es), [Meimingwei Li](https://github.com/YecanLee), [Christian Heumann](https://scholar.google.de/citations?user=H6LdyzoAAAAJ&hl=de),[Matthias Aßenmacher](https://www.slds.stat.uni-muenchen.de/people/assenmacher/)
@@ -14,12 +14,14 @@ This repo contains the official implementation of our paper __"Decoding Decoded:
 
 
 ## 📅 Timeline
+- [2024/11/21] We have released whole pre-generated dataset! 🤩.
 - [2024/11/16] We have released the official code implementation of our paper 🤩.
 - [2024/10/08] First version of our paper is available on [arXiv](https://arxiv.org/abs/2410.06097) now!
 
 
 ## 📖 Table of Contents <a href="#top">[Back to Top]</a>
 
+- [Download Pre-generated Dataset](#Download-Pre-generated-Dataset-)
 - [Dependency Installation](#Dependency-installation-)
 - [Run LLM Inference Experiments](#Run-LLM-Inference-Experiments-)
 - [Benchmark Decoding Methods](#Benchmark-Decoding-Methods-)
@@ -30,7 +32,14 @@ This repo contains the official implementation of our paper __"Decoding Decoded:
 - [License](#License-)
 - [Contributions](#Contributions-)
 
-## 🌋 Dependency Installation <a href="#top">[Back to Top]</a> <a name="dependency-installation-"></a>
+## 🌠 Download Pre-generated Dataset <a href="#top">[Back to Top]</a> <a name="download-pre-generated-dataset-"></a>
+To download the pre-generated dataset used in our paper, please run the following command:
+```bash
+gdown --folder https://drive.google.com/drive/folders/1Xa1ZtZpqL7bySVEy_Q8fqGjfNN7L-xvG
+```
+
+
+## 🛸 Dependency Installation <a href="#top">[Back to Top]</a> <a name="dependency-installation-"></a>
 
 To install all the dependencies for our paper, run the following command:
 ```bash
@@ -49,7 +58,7 @@ SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True pip install simctg
 
 ## 🚀 Run LLM Inference Experiments <a href="#top">[Back to Top]</a> <a name="run-llm-inference-experiments-"></a>
 
-We compared 5 different decoding methods in our paper, those are: **Contrastive Search, Top-k Sampling, Top-p Sampling, Beam Search and Temperature Scaling**. We compare those methods with the following hyperparameter combinations:
+We compared 5 different decoding methods in our paper, those are: **[Contrastive Search](https://arxiv.org/abs/2210.14140), [Top-k Sampling](https://arxiv.org/pdf/1805.04833), [Top-p Sampling](https://arxiv.org/abs/1904.09751), [Beam Search](https://arxiv.org/abs/1702.01806) and [Temperature Scaling](https://arxiv.org/abs/1706.04599)**. We compare those methods with the following hyperparameter combinations:
 - **Contrastive Search**: alpha=0.2, 0.4, 0.6, 0.8, 1.0, k=1, 3, 5, 10, 15, 20, 50
 - **Top-k Sampling**: k=1, 3, 5, 10, 15, 20, 50
 - **Top-p Sampling**: p=0.6, 0.7, 0.8, 0.9, 0.95
@@ -57,12 +66,12 @@ We compared 5 different decoding methods in our paper, those are: **Contrastive 
 - **Temperature Scaling**: temperature=0.1, 0.3, 0.5, 0.7, 0.9, 1.0   
 
 We run the decoding methods on the following 6 models:
-- **Llama-3.1-8B** [Llama-3.1 link](https://www.llama.com/)
-- **gpt2-xl** [GPT-2 link](https://openai.com/index/better-language-models/)
-- **Mistral-7B-v0.3** [Mistral link](https://mistral.ai/)
-- **Mistral-7B-v0.1** [Mistral link](https://arxiv.org/abs/2310.06825)
-- **Qwen/Qwen2-7B** [Qwen link](https://arxiv.org/abs/2407.10671)
-- **falcon-11B** [Falcon link](https://arxiv.org/abs/2407.14885)
+- [Llama-3.1](https://www.llama.com/)
+- [GPT-2](https://openai.com/index/better-language-models/)
+- [Mistral-7B-v0.3](https://mistral.ai/)
+- [Mistral-7B-v0.1](https://arxiv.org/abs/2310.06825)
+- [Qwen/Qwen2-7B](https://arxiv.org/abs/2407.10671)
+- [falcon-11B](https://arxiv.org/abs/2407.14885)
 
 
 We then benchmark the decoding quality and perplexity of those decoding methods. Please check the **Benchmark Decoding Methods** section for more details.
